@@ -1,0 +1,47 @@
+.text
+
+## int
+## detect_parity(int number) {
+##     int bits_counted = 0;
+##     int return_value = 1;
+##     for (int i = 0; i < 32; i++) {
+##         int bit = (number >> i) & 1;
+##         // zero is false, anything else is true
+##         if (bit) { 
+##             bits_counted++;
+##         }
+##     }
+##     if (bits_counted % 2 != 0) {
+##         return_value = 0;
+##     }
+##     return return_value;
+## }
+
+.globl detect_parity
+detect_parity:
+	# Your code goes here :)
+	li	$t0,	0	
+	li	$t1,	1
+	li	$t3,	32
+	li	$t4,	0	
+	# jr	$ra
+	
+FORLOOP:
+	#implement for loop
+	bge	$t4	$t3	GETOUT
+	srl	$t5	$a0	$t4
+	andi	$t5	$t5	1
+	beq	$t5	0	ISZERO
+	addi	$t0	$t0	1
+ISZERO: 
+	addi	$t4	$t4	1
+	j	FORLOOP
+
+GETOUT:
+	and	$t4	$t0	1
+	beq	$t4	$0	B
+	li	$t1	0
+B:
+	move	$v0	$t1
+	jr	$ra
+	

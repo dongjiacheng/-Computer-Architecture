@@ -1,0 +1,9 @@
+## a code generator for the ALU chain in the 32-bit ALU
+## see example_generator.py for inspiration
+## 
+## python generator.py
+from __future__ import print_function
+
+width = 32
+for i in range(2, width):
+    print("	alu1	alu{0}(out[{1}],carry[{1}],A[{1}],B[{1}],carry[{2}],contorl);".format(i, i - 1 , i - 2))

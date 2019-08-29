@@ -1,0 +1,88 @@
+Grades for version committed on time
+	get_secret_id: 12.0 / 20
+			*Failed test: null
+				*Error running test: 
+					Exception occurred at PC=0x004006b4
+					  Bad address in data/stack read: 0x00000004
+			*Failed test: null (evil)
+				*Error running test: 
+					Exception occurred at PC=0x004006b4
+					  Bad address in data/stack read: 0x00000004
+			*Failed test: no baskets
+				*Error running test: 
+					Exception occurred at PC=0xcafef00d
+					  Bad address in text read: 0xcafef00d
+			*Failed test: no baskets (evil)
+				*Error running test: 
+					Exception occurred at PC=0xcafef00d
+					  Bad address in text read: 0xcafef00d
+			*Passed test: four baskets
+			*Passed test: four baskets (evil)
+			*Passed test: four baskets
+			*Passed test: four baskets (evil)
+			*Passed test: ten baskets
+			*Passed test: ten baskets (evil)
+		
+	collect_baskets: 15.0 / 30
+			*Passed test: base case
+			*Passed test: base case (evil)
+			*Passed test: one node
+			*Failed test: one node (evil)
+				*Error running test: 
+					Exception occurred at PC=0x0040097c
+					  Unaligned address in store: 0xdeadc0e2
+			*Passed test: three nodes
+			*Failed test: three nodes (evil)
+				*Error running test: 
+					Exception occurred at PC=0x0040097c
+					  Unaligned address in store: 0xdeadc0e2
+			*Failed test: four nodes max three(with store byte test)
+				*Your output: Looks like you didn't use store byte
+			*Failed test: four nodes max three(with store byte test) (evil)
+				*Error running test: 
+					Exception occurred at PC=0x0040097c
+					  Unaligned address in store: 0xdeadc0e2
+			*Passed test: max zero
+			*Passed test: max zero (evil)
+			*Failed test: all the nodes(with store byte test)
+				*Your output: Looks like you didn't use store byte
+			*Failed test: all the nodes(with store byte test) (evil)
+				*Error running test: 
+					Exception occurred at PC=0x0040097c
+					  Unaligned address in store: 0xdeadc0e2
+			*Passed test: empty node
+			*Passed test: empty node (evil)
+			*Passed test: all the nodes max 2
+			*Failed test: all the nodes max 2 (evil)
+				*Error running test: 
+					Exception occurred at PC=0x0040097c
+					  Unaligned address in store: 0xdeadc0e2
+			*Passed test: 3 nodes max 10
+			*Failed test: 3 nodes max 10 (evil)
+				*Error running test: 
+					Exception occurred at PC=0x0040097c
+					  Unaligned address in store: 0xdeadc0e2
+			*Failed test: test load byte
+				*Error running test: 
+					Exception occurred at PC=0x00400900
+					  Unaligned address in inst/data fetch: 0x0badc0de
+			*Failed test: test load byte (evil)
+				*Error running test: 
+					Exception occurred at PC=0x00400900
+					  Unaligned address in inst/data fetch: 0x0badc0de
+		
+	search_carrot: 30.0 / 30
+			*Passed test: base case
+			*Passed test: base case (evil)
+			*Passed test: no baskets
+			*Passed test: no baskets (evil)
+			*Passed test: search_4_2_n5
+			*Passed test: search_4_2_n5 (evil)
+			*Passed test: search_4_2_n9
+			*Passed test: search_4_2_n9 (evil)
+			*Passed test: large search
+			*Passed test: large search (evil)
+		
+Total: 57.0 / 80
+
+Final Score: 57.0 / 80

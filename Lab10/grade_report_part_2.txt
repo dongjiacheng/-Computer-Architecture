@@ -1,0 +1,19 @@
+Grades for version committed on time
+	part 2: 28.75 / 60.0
+			*Partially passed test: mapseed 32
+					Score less than 100
+			*Passed test: mapseed 3
+			*Passed test: mapseed 23
+			*Partially passed test: mapseed 4
+					Score less than 100
+			*Partially passed test: mapseed 18
+					Score less than 100
+			*Partially passed test: mapseed 35
+					Score less than 100
+			*Partially passed test: mapseed 37
+					Score less than 100
+			*Passed test: mapseed 104
+		
+Total: 28.75 / 60.0
+
+Final Score: 28.75 / 60.0

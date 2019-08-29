@@ -1,0 +1,42 @@
+Grades for version committed on time
+	keypad: 20.0 / 20
+			*Passed test: abcdefg = 48
+			*Passed test: abcdefg = 28
+			*Passed test: abcdefg = 18
+			*Passed test: abcdefg = 44
+			*Passed test: abcdefg = 24
+			*Passed test: abcdefg = 14
+			*Passed test: abcdefg = 42
+			*Passed test: abcdefg = 22
+			*Passed test: abcdefg = 12
+			*Passed test: abcdefg = 21
+			*Passed test: abcdefg = 00
+		
+	extract_message: 40.0 / 40
+			*Passed test: simple
+				*Encoded message: [21, 104, 88, 103, 30, 127, 127, 0] (hXg).
+				*Expected decode: [105, 120, 121, 118, 117, 106, 110, 0] (ixyvujn)
+				*Actual decode: [105, 120, 121, 118, 117, 106, 110, 0] (ixyvujn)
+			*Passed test: 3 words
+				*Encoded message: [251, 196, 29, 53, 200, 255, 255, 0, 83, 198, 86, 103, 176, 255, 247, 0, 239, 74, 198, 3, 76, 255, 239, 0, 47, 3, 30, 54, 33, 63, 63, 0] (ûÄ5ÈÿÿSÆVg°ÿ÷ïJÆLÿï/6!??).
+				*Expected decode: [109, 97, 110, 117, 109, 105, 115, 115, 105, 111, 110, 32, 117, 120, 111, 114, 105, 111, 117, 115, 32, 97, 119, 101, 115, 111, 109, 101, 108, 121, 0] (manumission uxorious awesomely)
+				*Actual decode: [109, 97, 110, 117, 109, 105, 115, 115, 105, 111, 110, 32, 117, 120, 111, 114, 105, 111, 117, 115, 32, 97, 119, 101, 115, 111, 109, 101, 108, 121, 0, 0] (manumission uxorious awesomely)
+			*Passed test: 5 words
+				*Encoded message: [164, 46, 60, 172, 19, 255, 191, 0, 141, 136, 129, 213, 10, 255, 223, 0, 88, 26, 253, 28, 1, 255, 255, 0, 60, 80, 38, 8, 64, 255, 126, 0, 206, 141, 122, 56, 1, 255, 255, 0, 6, 12, 13, 14, 1, 15, 15, 0] (¤.<¬ÿ¿Õ
+		ÿßXýÿÿ<P&@ÿ~Îz8ÿÿ).
+				*Expected decode: [112, 114, 111, 110, 116, 111, 32, 105, 109, 112, 105, 115, 104, 32, 104, 111, 116, 98, 108, 111, 111, 100, 101, 100, 32, 100, 101, 105, 99, 101, 114, 32, 114, 101, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 0] (pronto impish hotblooded deicer recollection)
+				*Actual decode: [112, 114, 111, 110, 116, 111, 32, 105, 109, 112, 105, 115, 104, 32, 104, 111, 116, 98, 108, 111, 111, 100, 101, 100, 32, 100, 101, 105, 99, 101, 114, 32, 114, 101, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 0, 0, 0, 0] (pronto impish hotblooded deicer recollection)
+			*Passed test: Thousands of words
+				*Output hidden (too long)
+		
+	count_ones: 40.0 / 40
+			*Passed test: 2
+			*Passed test: 55
+			*Passed test: 42
+			*Passed test: 0xffffffff
+			*Passed test: 0x12345678
+			*Passed test: 0x55555555
+		
+Total: 100.0 / 100
+
+Final Score: 100.0 / 100

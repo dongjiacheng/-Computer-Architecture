@@ -1,0 +1,30 @@
+Grades for version committed on time
+	get num carrots: 10.0 / 10
+		get_num_carrots.s: warning: Found 2 instances of jr $ra. Using multiple return points is error prone. Consider merging return points into a single label.
+			*Passed test: empty
+			*Passed test: empty (evil)
+			*Passed test: one carrot
+			*Passed test: one carrot (evil)
+			*Passed test: ff0000ff
+			*Passed test: ff0000ff (evil)
+			*Passed test: f00fff0
+			*Passed test: f00fff0 (evil)
+			*Passed test: ff00ff00
+			*Passed test: ff00ff00 (evil)
+		
+	pick_k_best_baskets: 8.0 / 10
+		pick_best_k_baskets.s: warning: Found 2 instances of jr $ra. Using multiple return points is error prone. Consider merging return points into a single label.
+			*Passed test: four baskets
+			*Partially passed test: four baskets (evil) (callee-saved registers were modified)
+			*Passed test: eight baskets
+			*Partially passed test: eight baskets (evil) (callee-saved registers were modified)
+			*Passed test: no baskets
+			*Passed test: no baskets (evil)
+			*Passed test: one baskets one found
+			*Partially passed test: one baskets one found (evil) (callee-saved registers were modified)
+			*Passed test: six baskets six found
+			*Partially passed test: six baskets six found (evil) (callee-saved registers were modified)
+		
+Total: 18.0 / 20
+
+Final Score: 18.0 / 20

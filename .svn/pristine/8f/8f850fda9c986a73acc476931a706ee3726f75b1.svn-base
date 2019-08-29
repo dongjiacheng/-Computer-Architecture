@@ -1,0 +1,150 @@
+// register: A register which may be reset to an arbirary value
+//
+// q      (output) - Current value of register
+// d      (input)  - Next value of register
+// clk    (input)  - Clock (positive edge-sensitive)
+// enable (input)  - Load new value? (yes = 1, no = 0)
+// reset  (input)  - Asynchronous reset    (reset = 1)
+//
+module register(q, d, clk, enable, reset);
+
+    parameter
+        width = 32,
+        reset_value = 0;
+ 
+    output [(width-1):0] q;
+    reg    [(width-1):0] q;
+    input  [(width-1):0] d;
+    input                clk, enable, reset;
+ 
+    always@(reset)
+      if (reset == 1'b1)
+        q <= reset_value;
+ 
+    always@(posedge clk)
+      if ((reset == 1'b0) && (enable == 1'b1))
+        q <= d;
+
+endmodule // register
+
+module decoder2 (out, in, enable);
+    input     in;
+    input     enable;
+    output [1:0] out;
+ 
+    and a0(out[0], enable, ~in);
+    and a1(out[1], enable, in);
+endmodule // decoder2
+
+module decoder4 (out, in, enable);
+    input [1:0]    in;
+    input     enable;
+    output [3:0]   out;
+    wire [1:0]    w_enable;
+ 
+    decoder2 d0(w_enable,in[1],enable);
+    decoder2 d1(out[1:0],in[0],w_enable[0]);
+    decoder2 d2(out[3:2],in[0],w_enable[1]);    
+   
+     // implement using decoder2's
+    
+endmodule // decoder4
+
+module decoder8 (out, in, enable);
+    input [2:0]    in;
+    input     enable;
+    output [7:0]   out;
+    wire [1:0]    w_enable;
+    
+    decoder2 d2(w_enable,in[2],enable);
+    decoder4 d40(out[3:0],in[1:0],w_enable[0]);
+    decoder4 d41(out[7:4],in[1:0],w_enable[1]);
+    // implement using decoder2's and decoder4's
+ 
+endmodule // decoder8
+
+module decoder16 (out, in, enable);
+    input [3:0]    in;
+    input     enable;
+    output [15:0]  out;
+    wire [1:0]    w_enable;
+ 
+    decoder2 d2(w_enable,in[3],enable);
+    decoder8 d80(out[7:0],in[2:0],w_enable[0]);
+    decoder8 d81(out[15:8],in[2:0],w_enable[1]);
+    // implement using decoder2's and decoder8's
+ 
+endmodule // decoder16
+
+module decoder32 (out, in, enable);
+    input [4:0]    in;
+    input     enable;
+    output [31:0]  out;
+    wire [1:0]    w_enable;
+
+    decoder2 d2(w_enable,in[4],enable);
+    decoder16 d160(out[15:0],in[3:0],w_enable[0]);
+    decoder16 d161(out[31:16],in[3:0],w_enable[1]);
+    // implement using decoder2's and decoder16's
+ 
+endmodule // decoder32
+
+module mips_regfile (rd1_data, rd2_data, rd1_regnum, rd2_regnum, 
+             wr_regnum, wr_data, writeenable, 
+             clock, reset);
+
+    output [31:0]  rd1_data, rd2_data;
+    input   [4:0]  rd1_regnum, rd2_regnum, wr_regnum;
+    input  [31:0]  wr_data;
+    input          writeenable, clock, reset;
+    wire [31:0] decoded;
+    wire [31:0] reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10,
+                reg11, reg12, reg13, reg14, reg15, reg16, reg17, reg18, reg19, reg20,
+                reg21, reg22, reg23, reg24, reg25, reg26, reg27, reg28, reg29, reg30, reg31;
+ 
+    decoder32 dc0(decoded,wr_regnum,writeenable);
+    register rg0(reg0,wr_data,clock,decoded[0],1);
+    register rg1(reg1,wr_data,clock,decoded[1],reset);
+	register rg2(reg2,wr_data,clock,decoded[2],reset);
+	register rg3(reg3,wr_data,clock,decoded[3],reset);
+	register rg4(reg4,wr_data,clock,decoded[4],reset);
+	register rg5(reg5,wr_data,clock,decoded[5],reset);
+	register rg6(reg6,wr_data,clock,decoded[6],reset);
+	register rg7(reg7,wr_data,clock,decoded[7],reset);
+	register rg8(reg8,wr_data,clock,decoded[8],reset);
+	register rg9(reg9,wr_data,clock,decoded[9],reset);
+	register rg10(reg10,wr_data,clock,decoded[10],reset);
+	register rg11(reg11,wr_data,clock,decoded[11],reset);
+	register rg12(reg12,wr_data,clock,decoded[12],reset);
+	register rg13(reg13,wr_data,clock,decoded[13],reset);
+	register rg14(reg14,wr_data,clock,decoded[14],reset);
+	register rg15(reg15,wr_data,clock,decoded[15],reset);
+	register rg16(reg16,wr_data,clock,decoded[16],reset);
+	register rg17(reg17,wr_data,clock,decoded[17],reset);
+	register rg18(reg18,wr_data,clock,decoded[18],reset);
+	register rg19(reg19,wr_data,clock,decoded[19],reset);
+	register rg20(reg20,wr_data,clock,decoded[20],reset);
+	register rg21(reg21,wr_data,clock,decoded[21],reset);
+	register rg22(reg22,wr_data,clock,decoded[22],reset);
+	register rg23(reg23,wr_data,clock,decoded[23],reset);
+	register rg24(reg24,wr_data,clock,decoded[24],reset);
+	register rg25(reg25,wr_data,clock,decoded[25],reset);
+	register rg26(reg26,wr_data,clock,decoded[26],reset);
+	register rg27(reg27,wr_data,clock,decoded[27],reset);
+	register rg28(reg28,wr_data,clock,decoded[28],reset);
+	register rg29(reg29,wr_data,clock,decoded[29],reset);
+	register rg30(reg30,wr_data,clock,decoded[30],reset);
+	register rg31(reg31,wr_data,clock,decoded[31],reset);
+
+    mux32v rd1v(rd1_data,reg0,reg1,reg2,reg3,reg4,reg5,reg6,reg7,reg8,reg9,reg10,
+		reg11,reg12,reg13,reg14,reg15,reg16,reg17,reg18,reg19,reg20,reg21,
+		reg22,reg23,reg24,reg25,reg26,reg27,reg28,reg29,reg30,reg31,rd1_regnum);
+    mux32v rd2v(rd2_data,reg0,reg1,reg2,reg3,reg4,reg5,reg6,reg7,reg8,reg9,reg10,
+		reg11,reg12,reg13,reg14,reg15,reg16,reg17,reg18,reg19,reg20,reg21,
+		reg22,reg23,reg24,reg25,reg26,reg27,reg28,reg29,reg30,reg31,rd2_regnum);
+
+
+// build a register file!
+    
+endmodule // mips_regfile
+

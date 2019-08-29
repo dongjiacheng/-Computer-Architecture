@@ -1,0 +1,29 @@
+Grades for version committed on time
+	accumulate: 24.5 / 35
+			*Passed test: accumulate(13, 15)
+			*Passed test: accumulate(13, 15) (evil)
+			*Passed test: accumulate(42, 21)
+			*Failed test: accumulate(42, 21) (evil)
+				*Your output: -559038200 
+			*Passed test: accumulate(10, 15)
+			*Failed test: accumulate(10, 15) (evil)
+				*Your output: -1295415124 
+			*Passed test: accumulate(219,90)
+			*Passed test: accumulate(219,90) (evil)
+			*Passed test: accumulate(0,110)
+			*Failed test: accumulate(0,110) (evil)
+				*Your output: -559038242 
+		
+	calculate_identity: 35.0 / 35
+			*Passed test: calculate identity two_by_two
+			*Passed test: calculate identity two_by_two (evil)
+			*Passed test: calculate identity three_by_three
+			*Passed test: calculate identity three_by_three (evil)
+			*Passed test: calculate identity four_by_four
+			*Passed test: calculate identity four_by_four (evil)
+			*Passed test: calculate identity five_by_five
+			*Passed test: calculate identity five_by_five (evil)
+		
+Total: 59.5 / 70
+
+Final Score: 59.5 / 70

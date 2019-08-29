@@ -1,0 +1,60 @@
+.text
+
+## void
+## pick_best_k_baskets(int k, Baskets *baskets) {
+##     if (baskets == NULL) {
+##         return;
+##     }
+##     for (int i = 0; i < k; i++) {
+##         for (int j = baskets->num_found - 1; j > i; j--) {
+##             if (get_num_carrots(baskets->basket[j - 1]) <
+##                 get_num_carrots(baskets->basket[j])) {
+##                 // Swaps values stored at j-1 and j in place.
+##                 // The address stored in basket array is 32 bits
+##                 // (i.e. You do NOT need to do any casting in MIPS.)
+##                 baskets->basket[j] = (Node *)((int)baskets->basket[j] ^
+##                                               (int)baskets->basket[j - 1]);
+##                 baskets->basket[j - 1] = (Node *)((int)baskets->basket[j] ^
+##                                                   (int)baskets->basket[j - 1]);
+##                 baskets->basket[j] = (Node *)((int)baskets->basket[j] ^
+##                                               (int)baskets->basket[j - 1]);
+##             }
+##         }
+##     }
+## }
+## 
+## struct Node {
+##     char seen;		1+3	0
+##     int basket;		4	4
+##     int dirt;		4	8
+##     int id_size;		4	12
+##     int *identity;		4	16
+##     int num_children;	4	20
+##     Node *children[4];	4	24
+## };					28
+## 				
+## struct Baskets {
+##     int num_found;		4	0
+##     Node *basket[10];	4	4
+## };					8
+
+.globl pick_best_k_baskets
+pick_best_k_baskets:
+	# Your code goes here :)
+	bne	$a1, $0, Normal
+	jr	$ra
+Normal:
+	lw	$t1, 0($a0)
+	sub	$t1, $t1, 1	#basket->numfount - 1	
+	li	$t0, 1		#i = 0
+	bge $t0, $a0   OUTFOR1
+	mv	$t2, $t1	#j = baket->n - 1
+	ble $t2, $t0,  OUTFOR2
+
+
+
+OUTFOR2:
+
+
+OUTFOR1:	
+	jr	$ra
